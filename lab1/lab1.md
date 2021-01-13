@@ -12,13 +12,13 @@ You need to commit your codes and lab report to your GitHub repository **before 
 
 To access the class GitHub, you need to be granted access right, please ask us to add you into the group.
 
-Next, you need to accept the class assignment. We will provide you a link to the assignment. Follow the steps in the link and you will be assigned with a private repository named **labs-[github\_username]**. Only you and the lecturers have access to this repository. For this lab and future labs, you should use this repository to your lab reports and exercises. 
+Next, you need to accept the class assignment. We will provide you a link to the assignment. Follow the steps in the link and you will be assigned with a private repository named **labs-[github\_username]**. Only you and the lecturers have access to this repository. For this lab and future labs, you should use this repository to submit your lab reports and exercises. 
 
 We can now clone the master labs repository. You are free to use any Git GUI clients (e.g., GitHub Desktop, Tortoise Git, etc.) or even use command line to commit your code.	
 
 ## Java IDE
 
-In this course, all the demonstrations are developed with Eclipse. However, you are free to choose a Java IDE to do the programing exercises. Other well-known IDE: IntelliJ IDEA, NetBeans, etc.
+In this course, all the demonstrations are developed with Eclipse. However, you are free to choose another Java IDE to do the programing exercises. Other well-known IDE: IntelliJ IDEA, NetBeans, etc.
 
 ## Concurrency and Parallelism
 
@@ -412,7 +412,7 @@ Your tasks for this exercise are:
 
 Please also include a screenshot of the program output to your lab report.
 
-## Waiting for the finalization of a thread
+## Waiting For The Finalization Of A Thread
 
 In some situations, we will have to wait for the end of the execution of a thread (the `run()` method ends its execution). For example, we may have a program that will begin initializing the resources it needs before proceeding with the rest of the execution. We can run initialization tasks as threads and wait for their finalization before continuing with the rest of the program. 
 
@@ -452,7 +452,7 @@ public static void main(String[] args) {
 
 Run the `data-sources-loader` and include the screenshot of the program output to your lab report.
 
-## Using thread local variables
+## Using Thread Local Variables
 
 One of the most critical aspects of a concurrent application is shared data. This has special importance in objects that extend the `Thread` class or implement the `Runnable` interface and in objects that are shared between two or more threads.
 
@@ -486,14 +486,19 @@ public void run() {
 	}
 ```
 
-## Exercise 6 (10):
+## Exercise 6 (10 points):
 
 Run the `UnsafeMain` and `SafeMain` and discuss the differences between the output of these two programs in term of `startDate` values.
 
 ## Markdown:
 
-I wrote this lab using Markdown (`.md`) which is a very simple markup language for documentation. You can find  more information about markdown [here](https://github.com/ITF23019/demo-markdown). I was thinking maybe you should also try using markdown to write your reports (or enter your answers of the lab exercises directly into this file). **This is not mandatory, just a suggestion**. I just wanted to introduce to you a very cool language that developers use to document their code.
+I wrote this lab using Markdown (`.md`) which is a very simple markup language for documentation. You can find  more information about markdown [here](https://github.com/ITF23019/demo-markdown). I was thinking maybe you should also try using markdown to write your reports. **This is not mandatory, just a suggestion**. I just wanted to introduce to you a very cool language that developers use to document their code.
 
 ## What To Submit
 
 Complete the the exercises in this lab and put your code along with **lab1_report** (Markdown, TXT or PDF file) into the **lab1** directory of your repository. Commit your changes and remember to check the GitHub website to make sure all files have been submitted.
+
+## References:
+
+1. [Multithreading in Java - GeeksforGeeks](https://www.geeksforgeeks.org/multithreading-in-java/#:~:text=Multithreading%20is%20a%20Java%20feature,weight%20processes%20within%20a%20process.)
+2. González, Javier Fernández. *Mastering Concurrency Programming with Java 9*. Packt Publishing Ltd, 2017.
