@@ -54,8 +54,6 @@ public class Main {
 		serialRun = serialRun/ (1000.0 * RUNS);
 		System.out.println("Average Serial Run Time: " + serialRun);
 		
-		System.out.println("Speedup = " + serialRun/parallelRun);
-		
 		
 		//TODO: Compute the speed up for the two versions of parallel run (with and without parallel sorting)
 		
