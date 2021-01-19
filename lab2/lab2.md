@@ -18,13 +18,13 @@ The instruction and code of the labs will be posted in the `labs` repository. To
 
 1. Commit and push the changes of `lab1` to your GitHub repository (`labs-yourusername`)
 
-   ![](/img/github_4.png)
+   ![](./img/github_4.png)
 
-   ![](/img/github_3.png)
+   ![](./img/github_3.png)
 
 2. Open the Command Prompt:
 
-   ![](/img/github_1.png)
+   ![](./img/github_1.png)
    
 3. Run the following command:
 
@@ -50,11 +50,11 @@ The instruction and code of the labs will be posted in the `labs` repository. To
 
 4. If you get any conflicts, go back and resolve all the conflicted files with **Use the added file from main** to keep your original files.
 
-   ![](/img/github_2.png)
+   ![](./img/github_2.png)
 
 5. Once every conflict is resolved, `Commit merge` and push the changes to your GitHub repository
 
-   ![](/img/github_3.png)
+   ![](./img/github_3.png)
 
 Now, you will have all the files of lab2 on your computer. From next labs, just run the command `git pull upstream main` and repeat step #4 and #5.
 
