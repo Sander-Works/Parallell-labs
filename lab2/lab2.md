@@ -1,9 +1,10 @@
 <h1 align="center"> ITF23019 - Parallel and Distributed Programming </h1>
 <h3 align="center"> Spring 2021 </h2>
-<h3 align="center"> Lab 2: Thread Executor and Fork/Join Framework </h2>
+<h3 align="center"> Lab 2: Thread Executor </h2>
 
 
-In this lab, you will learn how to manage a lot of thread with Java Executor. Furthermore, we will learn how to use Java Fork/Join Framework to implement data-parallelism algorithms.
+
+In this lab, you will learn how to manage a lot of thread with Java Executor. 
 
 ## Submission Deadline:
 
@@ -56,10 +57,6 @@ The instruction and code of the labs will be posted in the `labs` repository. To
    ![](/img/github_3.png)
 
 Now, you will have all the files of lab2 on your computer. From next labs, just run the command `git pull upstream main` and repeat step #4 and #5.
-
-## What To Submit
-
-Complete the the exercises in this lab and put your code along with **lab2_report** (Markdown, TXT or PDF file) into the **lab2** directory of your repository. Commit and push your changes and remember to check the GitHub website to make sure all files have been submitted.
 
 ## Introduction To Java Executors
 
@@ -510,6 +507,10 @@ There are multiple `main()` functions which you can use to run different version
 * `Main`.java:  Run the three above versions for `RUNS=5` times and compute the average execution time of each version.
 
 Your task for this exercise is to run the program and complete the implementation of the `Main.java` to compute the speedup of the two parallel versions. Discuss the result.
+
+## What To Submit
+
+Complete the the exercises in this lab and put your code along with **lab2_report** (Markdown, TXT or PDF file) into the **lab2** directory of your repository. Commit and push your changes and remember to check the GitHub website to make sure all files have been submitted.
 
 ## References:
 
