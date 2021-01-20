@@ -212,7 +212,7 @@ Run the project `demo-executor-callable` and answer the following questions:
 
 * What will happen when we call `get()` method from a task that is not done.
 * How to cancel a submitted task?
-* Notice that we use `executor.execute(task)` in `demo-executor-runnable` project and ``executor.submit(task)`in `demo-executor-callable` project. What are differences of those two methods?
+* Notice that we use `executor.execute(task)` in `demo-executor-runnable` project and `executor.submit(task)`in `demo-executor-callable` project. What are the differences of those two methods?
 
 ### Exercise 3 (50 points):
 
@@ -223,7 +223,7 @@ Your tasks in this exercise are:
 * Complete the implementation of `ParallelGroupFileSearchExecutor`. 
 * Run the three versions in the `Main.java` and discuss the execution time of  those versions.
 
-### Bonus Exercise (30 points): Chapter2 in [1]
+### Bonus Exercise (30 points): 
 
 In this exercise, we will evaluate the performance of parallel version of the k-nearest neighbors algorithm. The implementation of the serial version and parallel version of this algorithm is inside the `excutor-knn` project. 
 
