@@ -54,6 +54,5 @@ public class ParallelGroupFileSearch {
 				thread.interrupt();
 			}
 		}
-
 	}
 }

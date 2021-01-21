@@ -14,7 +14,7 @@ public class ParallelGroupFileTask implements Runnable {
 
 	private final String fileName;
 	private final ConcurrentLinkedQueue<File> directories;
-	private final Result parallelResult;
+	private  final Result parallelResult;
 	private boolean found;
 
 	public ParallelGroupFileTask(String fileName, Result parallelResult, ConcurrentLinkedQueue<File> directories) {
@@ -90,7 +90,10 @@ public class ParallelGroupFileTask implements Runnable {
 	 * @param parallelResult result of the search process
 	 */
 	private void processFile(File content, String fileName, Result parallelResult) {
-		//TODO: Complete the implementation of this method
+		if(content.getName().equals(fileName)) {
+			found = true;
+			parallelResult.setPath(content.getPath());
+		}
 	}
 
 	public boolean getFound() {

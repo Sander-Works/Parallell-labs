@@ -29,17 +29,19 @@ public class Calculator extends Thread {
 
 	/**
 	 * Method that calculate if a number is prime or not
-	 * 
-	 * @param number
-	 *            : The number
+	 *
+	 * @param number : The number
 	 * @return A boolean value. True if the number is prime, false if not.
 	 */
 	private boolean isPrime(long number) {
-		//TODO: Complete the implementation for this method. 
-		// One Naïve Solution – Iterate through 2 to n-1 and check if given number 
-		// is divisible by any number between 2 to n-1, 
-		// if yes then number is not prime else it is prime.
-		return false;
+		boolean numPrime = true;
+		for (int i = 2; i <= number / 2; ++i) {
+			// condition for nonprime number
+			if (number % i == 0) {
+				numPrime = false;
+				break;
+			}
+		}
+		return numPrime;
 	}
-
 }

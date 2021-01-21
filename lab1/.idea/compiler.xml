@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="parallel-file-search" />
+        <module name="thread-local-variables" />
+        <module name="demo-thread" />
+        <module name="prime-calculator-interprupt" />
+        <module name="data-sources-loader" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="data-sources-loader" target="1.7" />
+      <module name="demo-thread" target="1.7" />
+      <module name="parallel-file-search" target="1.7" />
+      <module name="prime-calculator-interprupt" target="1.7" />
+      <module name="thread-local-variables" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

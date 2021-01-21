@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/demo-thread/pom.xml" />
+        <option value="$PROJECT_DIR$/prime-calculator-interprupt/pom.xml" />
+        <option value="$PROJECT_DIR$/thread-local-variables/pom.xml" />
+        <option value="$PROJECT_DIR$/parallel-file-search/pom.xml" />
+        <option value="$PROJECT_DIR$/data-sources-loader/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>

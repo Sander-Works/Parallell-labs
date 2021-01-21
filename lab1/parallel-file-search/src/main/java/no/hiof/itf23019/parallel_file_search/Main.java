@@ -20,7 +20,7 @@ public class Main {
 		SerialFileSearch.searchFiles(file, regex, result);
 		end = new Date();
 
-
+		double serialRunTime = (end.getTime() - start.getTime());
 		System.out.printf("Serial Search: Execution Time: %d%n", end.getTime() - start.getTime());
 
 		
@@ -31,10 +31,10 @@ public class Main {
 
 		System.out.printf("Parallel Group Search: Path: %s%n", parallelResult.getPath());
 		System.out.printf("Parallel Group Search: Execution Time: %d%n", end.getTime() - start.getTime());
+		double parallelRunTime = (end.getTime() - start.getTime());
 		
-		
-		//TODO: Compute and print out the speed up.
-		Double speedup = -1.0;
+
+		Double speedup = (serialRunTime / parallelRunTime);
 		System.out.printf("The speedup is %f%n", speedup);
 	}
 

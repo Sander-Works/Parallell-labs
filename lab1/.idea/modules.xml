@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/data-sources-loader/data-sources-loader.iml" filepath="$PROJECT_DIR$/data-sources-loader/data-sources-loader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo-thread/demo-thread.iml" filepath="$PROJECT_DIR$/demo-thread/demo-thread.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/lab1.iml" filepath="$PROJECT_DIR$/.idea/lab1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/parallel-file-search/parallel-file-search.iml" filepath="$PROJECT_DIR$/parallel-file-search/parallel-file-search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/prime-calculator-interprupt/prime-calculator-interprupt.iml" filepath="$PROJECT_DIR$/prime-calculator-interprupt/prime-calculator-interprupt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thread-local-variables/thread-local-variables.iml" filepath="$PROJECT_DIR$/thread-local-variables/thread-local-variables.iml" />
+    </modules>
+  </component>
+</project>
