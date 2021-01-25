@@ -116,7 +116,7 @@ public class Main {
 		double parallelRunTime = (end.getTime() - start.getTime());
 		
 
-		Double speedup = (serialRunTime / parallellRunTime);
+		Double speedup = (serialRunTime / parallelRunTime);
 		System.out.printf("The speedup is %f%n", speedup);
 	}
 }
