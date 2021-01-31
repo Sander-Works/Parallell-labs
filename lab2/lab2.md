@@ -221,7 +221,7 @@ In this exercise we will improve the `parallel-file-search` of `lab1` by using `
 Your tasks in this exercise are:
 
 * Complete the implementation of `ParallelGroupFileSearchExecutor`. 
-* Run the three versions in the `Main.java` and discuss the execution time of  those versions.
+* Run the three versions in the `Main.java` and discuss the execution time of those versions.
 
 ### Bonus Exercise (30 points): 
 

@@ -62,6 +62,7 @@ public class Main {
 				e.printStackTrace();
 			}
 			System.out.printf("Core: Task %d: %d\n",i,number);
+
 		}
 		
 

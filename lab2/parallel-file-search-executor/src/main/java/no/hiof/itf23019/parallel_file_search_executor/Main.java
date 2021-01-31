@@ -31,9 +31,9 @@ public class Main {
 		ParallelGroupFileSearch.searchFiles(file, regex, parallelResult);
 		end = new Date();
 
-		System.out.printf("Parallel Group Search: Path: %s%n", parallelResult.getPath());
-		System.out.printf("Parallel Group Search: Execution Time: %d%n", end.getTime() - start.getTime());
-		
+		System.out.printf("Parallel Group Search without Executor: Path: %s%n", parallelResult.getPath());
+		System.out.printf("Parallel Group Search without Executor: Execution Time: %d%n", end.getTime() - start.getTime());
+
 		//Parallel search with executor
 		Result parallelResultExecutor = new Result();
 		start = new Date();
@@ -41,7 +41,7 @@ public class Main {
 		end = new Date();
 
 		System.out.printf("Parallel Group Search with Executor: Path: %s%n", parallelResultExecutor.getPath());
-		System.out.printf("Parallel Group Search with Exectuor: Execution Time: %d%n", end.getTime() - start.getTime());
+		System.out.printf("Parallel Group Search with Executor: Execution Time: %d%n", end.getTime() - start.getTime());
 	}
 
 }

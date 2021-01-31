@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="excutor-knn" />
+        <module name="demo-executor-callable" />
+        <module name="parallel-file-search-executor" />
+        <module name="demo-executor" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="demo-executor" target="1.7" />
+      <module name="demo-executor-callable" target="1.7" />
+      <module name="excutor-knn" target="8" />
+      <module name="parallel-file-search-executor" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

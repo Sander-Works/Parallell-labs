@@ -2,12 +2,14 @@ package no.hiof.itf23019.parallel_file_search_executor.parallel;
 
 import java.io.File;
 import java.lang.Thread.State;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.Executor;
 
 import no.hiof.itf23019.parallel_file_search_executor.*;
 
 
-public class ParallelGroupFileSearch {
+public class ParallelGroupFileSearch{
 
 	public static void searchFiles(File file, String fileName, Result parallelResult) {
 

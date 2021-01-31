@@ -4,11 +4,7 @@ import java.io.File;
 import java.lang.Thread.State;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.*;
 
 import no.hiof.itf23019.parallel_file_search_executor.Result;
 
@@ -32,9 +28,10 @@ public class ParallelGroupFileSearchExecutor {
 		// List to store the Future objects that control the execution of the task
 		List<Future<Boolean>> futureTaskList = new ArrayList<>();
 
+		boolean finish = false;
 		//Number of task to create
 		int numTasks = Runtime.getRuntime().availableProcessors();
-
+		String result;
 		//Create the task and submit them to the executor
 		for (int i = 0; i < numTasks; i++) {
 			ParallelGroupFileTaskExecutor task = new ParallelGroupFileTaskExecutor(fileName, parallelResult,
@@ -43,26 +40,26 @@ public class ParallelGroupFileSearchExecutor {
 			futureTaskList.add(futureTask);
 		}
 
-		boolean finish = false;
-
 		while (!finish) {
-
-			//TODO: Implement the same algorithm as in the ParallelGroupFileSearch
-			//Iterate over the task in futureTaskList and check if one of the tasks finds the file 
-			// or all tasks are done
-			//then break the loop.
-			// Hint: To check if the task is done: futureTask.isDone()
-			// To check the result of the search: futureTask.get()
-			//To check the number of complete task: executor.getCompletedTaskCount()
+			for (Future<Boolean> booleanFuture : futureTaskList)
+				try {
+					if (booleanFuture.get()|| executor.getCompletedTaskCount() == numTasks) {
+						finish = true;
+						break;
+					}
+				} catch (InterruptedException | ExecutionException e) {
+					e.printStackTrace();
+				}
+			executor.shutdown();
 		}
 
-		// Cancel the remaining task.
-		if (executor.getCompletedTaskCount() != numTasks) {
-			//TODO: cancel all the task in futureTaskList
-			
+			if (executor.getCompletedTaskCount() != numTasks) {
+				executor.shutdownNow();
+				//Could also have used cancel(true)
+			}
+
+
 		}
-
-		executor.shutdown();
-
 	}
-}
+
+
