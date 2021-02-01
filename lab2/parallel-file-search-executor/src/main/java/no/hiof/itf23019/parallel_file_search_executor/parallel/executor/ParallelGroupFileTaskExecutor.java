@@ -37,7 +37,7 @@ public class ParallelGroupFileTaskExecutor implements Callable<Boolean> {
 					return found;
 				}
 			} catch (InterruptedException e) {
-				System.out.printf("%s has been interrupted%n", Thread.currentThread().getName());
+				//System.out.printf("%s has been interrupted%n", Thread.currentThread().getName());
 			}
 		}
 		return found;
