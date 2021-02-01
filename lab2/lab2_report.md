@@ -54,13 +54,17 @@ This returns a Future object that will allow you to systematically cancel runnin
 ##Task 3 
 
 The first thing that I noticed when I was done was really weired. It appeared I got a different path from time to time with the Parallel Group Search with Executor. Some times it was working well and took the path it is supposed to do:
-C:\Windows\System32\drivers\etc\hosts and got an execution times that could be even betterthen parallel without an executor. This did seem to vary aswell.. 
+C:\Windows\System32\drivers\etc\hosts and got an execution times that could be even betterthen parallel without an executor. 
 
 When it didn't work as it was supposed to it used this path: C:\Windows\WinSxS\amd64_microsoft-windows-w..ucture-other-minwin_31bf3856ad364e35_10.0.19041.1_none_eb30aafa046f78ad\hosts. 
-This had a way slower execution time of 7935. This is the same file, but I have no idea why it would sometimes skip the system32 folder and go for WinSxS instead. 
-I would love you to give me an explanation of this! 
+This had a way slower execution time of 7935. This is the same file, but I have no idea why it would sometimes skip the system32 folder and go for WinSxS instead.
+The fix for this was to have an if test to see if the thread was done. 
 
-Serial was slowest all the time which came as no suprise...
+Serial was slowest all the time which came as no surprise. Just dont use this for file searching.
+
+The most interesting thing to see is that with and without an executor are swapping on being the fastest method. If you just need to find a file it looks like you dont need to use an executor.
+But the executor bring a lot more features and flexibility and this functionality can be useful. The automatic thread handling is also worth a mention. 
+
 
 
 

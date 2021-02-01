@@ -42,17 +42,18 @@ public class ParallelGroupFileSearchExecutor {
 
 		while (!finish) {
 			for (Future<Boolean> booleanFuture : futureTaskList)
-				try {
-					if (booleanFuture.get()|| executor.getCompletedTaskCount() == numTasks) {
-						finish = true;
-						break;
+				if (booleanFuture.isDone()) {
+					try {
+						if (booleanFuture.get() || executor.getCompletedTaskCount() == numTasks) {
+							finish = true;
+							break;
+						}
+					} catch (InterruptedException | ExecutionException e) {
+						e.printStackTrace();
 					}
-				} catch (InterruptedException | ExecutionException e) {
-					e.printStackTrace();
+					executor.shutdown();
 				}
-			executor.shutdown();
 		}
-
 			if (executor.getCompletedTaskCount() != numTasks) {
 				executor.shutdownNow();
 				//Could also have used cancel(true)
