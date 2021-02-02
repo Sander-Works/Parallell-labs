@@ -352,7 +352,7 @@ Remember to analyze the speedup of your implementation.
 
 ## What To Submit
 
-Complete the the exercises in this lab and put your code along with **lab3_report** (Markdown, TXT or PDF file) into the **lab3 ** directory of your repository. Commit and push your changes and remember to check the GitHub website to make sure all files have been submitted.
+Complete the the exercises in this lab and put your code along with **lab3_report** (Markdown, TXT or PDF file) into the **lab3** directory of your repository. Commit and push your changes and remember to check the GitHub website to make sure all files have been submitted.
 
 ## References:
 
