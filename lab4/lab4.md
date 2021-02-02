@@ -148,6 +148,7 @@ public class EventStorage {
 			System.out.printf("Get: %d: %s\n",storage.size(),element);
 			notify();
 	}
+}
 ```
 
 ## Lock
@@ -179,7 +180,6 @@ public class LockTask implements Runnable {
 			lock.unlock();
 		}
 	}
-
 }
 ```
 
@@ -228,7 +228,6 @@ public class PricesInfo {
 		lock.writeLock().unlock();
 	}
 }
-
 ```
 
 ## Condition Variable
@@ -306,7 +305,6 @@ public class TaskController {
 	}
 
 }
-
 ```
 
 ## Semaphore
@@ -393,26 +391,26 @@ public class CountDownTask implements Runnable {
 Then, in the `main()` method, we execute the tasks in an executor and wait for their finalization using the `await()` method of `CountDownLatch`. The object is initialized with the number of tasks we want to wait for.
 
 ```java
-	public static void main(String[] args) {
-		
-		CountDownLatch countDownLatch=new CountDownLatch(10);
-		
-		ThreadPoolExecutor executor=(ThreadPoolExecutor)Executors.newCachedThreadPool();
-		
-		System.out.println("Main: Launching tasks");
-		for (int i=0; i<10; i++) {
-			executor.execute(new CountDownTask(countDownLatch));
-		}
+public static void main(String[] args) {
 
-		try {
-			countDownLatch.await();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		System.out.println("Main: Tasks finished at "+new Date());
-		
-		executor.shutdown();
-	}
+    CountDownLatch countDownLatch=new CountDownLatch(10);
+
+    ThreadPoolExecutor executor=(ThreadPoolExecutor)Executors.newCachedThreadPool();
+
+    System.out.println("Main: Launching tasks");
+    for (int i=0; i<10; i++) {
+        executor.execute(new CountDownTask(countDownLatch));
+    }
+
+    try {
+        countDownLatch.await();
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+    System.out.println("Main: Tasks finished at "+new Date());
+
+    executor.shutdown();
+}
 ```
 
 ## Barrier
@@ -495,37 +493,36 @@ For example,  the main function of the producer is implemented below. Basically,
 
 ```java
 /**
-	 * Main method of the producer. It produces 100 events. 10 cycles of 10 events.
-	 * After produce 10 events, it uses the exchanger object to synchronize with 
-	 * the consumer. The producer sends to the consumer the buffer with ten events and
-	 * receives from the consumer an empty buffer
-	 */
-	@Override
-	public void run() {
-		
-		for (int cycle=1; cycle<=10; cycle++){
-			System.out.printf("Producer: Cycle %d\n",cycle);
-			
-			for (int j=0; j<10; j++){
-				String message="Event "+(((cycle-1)*10)+j);
-				System.out.printf("Producer: %s\n",message);
-				buffer.add(message);
-			}
-			
-			try {
-				/*
+* Main method of the producer. It produces 100 events. 10 cycles of 10 events.
+* After produce 10 events, it uses the exchanger object to synchronize with 
+* the consumer. The producer sends to the consumer the buffer with ten events and
+* receives from the consumer an empty buffer
+*/
+@Override
+public void run() {
+
+    for (int cycle=1; cycle<=10; cycle++){
+        System.out.printf("Producer: Cycle %d\n",cycle);
+
+        for (int j=0; j<10; j++){
+            String message="Event "+(((cycle-1)*10)+j);
+            System.out.printf("Producer: %s\n",message);
+            buffer.add(message);
+        }
+
+        try {
+            /*
 				 * Change the data buffer with the consumer
 				 */
-				buffer=exchanger.exchange(buffer);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			
-			System.out.printf("Producer: %d\n",buffer.size());
+            buffer=exchanger.exchange(buffer);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-		}
-		
-	}
+        System.out.printf("Producer: %d\n",buffer.size());
+
+    }
+}
 ```
 
 
