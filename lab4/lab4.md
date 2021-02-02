@@ -549,7 +549,7 @@ The `printing-tasks` project creates to concurent tasks: `PrintingTaskA` that pr
 
 * Semaphore (15 points)
 * Condition (15 points)
-* Monitor (10 points)
+* Monitor with condition (10 points)
 
 Follow the instructions in the corresponding classes.
 
