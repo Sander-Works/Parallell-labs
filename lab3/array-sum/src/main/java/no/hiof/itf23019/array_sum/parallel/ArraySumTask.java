@@ -29,16 +29,16 @@ public class ArraySumTask extends RecursiveAction {
 			}
 		} 
 		else {
-			
-			ArraySumTask left = null, right =null;
-			
+
 			//TODO:
 			//Compute the indices for the two sub tasks.
 			//Initialize the two sub tasks: left and right
+			ArraySumTask left = new ArraySumTask(input, startIndex,(endIndex + startIndex) /2 ); //This is to get to get the first half of the array
+			ArraySumTask right = new ArraySumTask(input, (endIndex + startIndex) / 2, endIndex); //This is to get the second half of the array
 			//start the tasks and wait for them to finish
-
-			
-			
+			left.fork();
+			right.compute();
+			left.join();
 			//Compute the sum of the two sub-tasks.
 			sum = left.getSum() + right.getSum();
 		}

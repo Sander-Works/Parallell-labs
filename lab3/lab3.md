@@ -125,7 +125,7 @@ public class Task extends RecursiveAction {
 
 The main method that implement the task is `compute()` method. As mentioned earlier, it checks if the size of the task is smaller than 10 and update the price directly. Otherwise, it divide the tasks into two equal tasks: `t1` and `t2`.  Start the child threads with `fork()` and wait for the tasks to finish.
 
-```java
+````java
 	/**
 	 * Method that implements the job of the task
 	 */
@@ -156,7 +156,7 @@ The main method that implement the task is `compute()` method. As mentioned earl
 			product.setPrice(product.getPrice() * (1 + increment));
 		}
 	}
-```
+````
 
 The `main` function generates 10 000 000 product, create the main task and the `ForkJoinPool`. Finally it starts executing the main task.
 
@@ -325,7 +325,7 @@ Your task for this exercise is to complete the implementation of the `compute()`
 
 Your task for this exercise is implement the task using `RecursiveTask`. 
 
-Create a project and name it `no.hiof.itf23019.array-sum-recursive-task` for this exercise. Remember to compute the speed up for your implementation. 
+Create a project and name it `no.hiof.itf23019.array_sum.array-sum-recursive-task` for this exercise. Remember to compute the speed up for your implementation. 
 
 ## Bonus Exercise (20 points)
 

@@ -27,15 +27,21 @@ public class Main {
 			System.out.println("sequentialArraySum took " + (endTime - startTime) + " milliseconds.");
 			
 			startTime = System.currentTimeMillis();
-			int parSum = arraySumParallel.parallelArraySum(input);
+			int prallelRecursiveAction = arraySumParallel.parallelArraySum(input);
 			endTime = System.currentTimeMillis();
-			System.out.println("parallelArraySum output is " + parSum);
+			System.out.println("parallelArraySum output is " + prallelRecursiveAction);
 			System.out.println("parallelArraySum took " + (endTime - startTime) + " milliseconds.");
-			
+
+
+			startTime = System.currentTimeMillis();
+			int prallelRecursiveTask = arraySumParallel.parallelArraySum(input);
+			endTime = System.currentTimeMillis();
+			System.out.println("parallelArraySumRecursiveTask output is " + prallelRecursiveTask);
+			System.out.println("parallelArraySumRecursiveTask took " + (endTime - startTime) + " milliseconds.");
+
 			System.out.println();
 		}
-		
-		//TODO: Compute the speedup
+
 		
 	}
 
