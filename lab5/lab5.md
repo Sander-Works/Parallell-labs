@@ -256,7 +256,7 @@ The default implementation of this method returns `true` if the number of regist
 
 
 
-The project  `phaser` simulates the flow illustrated in the figure below. Specially, the program creates 5 `Student` threads and synchronize them with "strict barrier". The `MyPhaser` class is an extension of the `Phaser` class, which prints out respective messages whenever the phaser advances new phase.
+The project  `phaser` simulates the flow illustrated in the figure below. Specially, the program creates 5 `Student` threads and synchronizes them with "strict barrier". The `MyPhaser` class is an extension of the `Phaser` class, which prints out respective messages whenever the phaser advances new phase.
 
 <img src="./img/phaser.png" width="500" />
 
@@ -281,7 +281,7 @@ public void run() {
 }
 ```
 
-The project `fuzzy_phaser` does the similar simulation with "fuzzy barrier". The figure below illustrate the execution flow of the threads.
+The project `fuzzy_phaser` does the similar simulation with "fuzzy barrier". The figure below illustrates the execution flow of the threads.
 
 <img src="./img/fuzzy_phaser.png" width="500" />
 
@@ -314,7 +314,7 @@ public void run() {
 
 ## Exercise 1 (40 points):
 
- in the project `completable`, you can see that the `CompletetableMain` class used lambda expression for the implementation of function and consumer. In this exercise, you are asked to rewrite those lambda expression to classes that implement respective interfaces. Specifically, you need to rewrite the `step1Future` by using`ClosestDistanceSelector` and `write2Future` by using `NumberPrinter` . Follow the instruction in the corresponding classes. Remember to include screenshot of your program output to the report.
+In the project `completable`, you can see that the `CompletetableMain` class uses lambda expression for the implementation of function and consumer. In this exercise, you are asked to rewrite those lambda expression to classes that implement respective interfaces. Specifically, you need to rewrite the `step1Future` by using`ClosestDistanceSelector` and `write2Future` by using `NumberPrinter`. Follow the instructions in the corresponding classes. Remember to include screenshot of your program output to the report.
 
 ## Exercise 2 (60 points):
 
@@ -322,7 +322,7 @@ In this exercise, we will examine the **Iterative Averaging** problem. Iterative
 
 <img src="./img/average.png" />
 
-To implement this problem, we use two arrays, one keeps the value of previous phase (iteration), the other contains the values for this current phase (iteration). After each phase, we need to swap the array and continue the next iteration:
+To implement this problem, we use two arrays, one keeps the values of the previous phase (iteration), the other contains the values of this current phase (iteration). After each phase, we need to swap the arrays and continue the next iteration:
 
 ```java
     /**
@@ -351,13 +351,13 @@ To implement this problem, we use two arrays, one keeps the value of previous ph
     }
 ```
 
-As you can see, this problem can be parallelized by splitting the array into smaller arrays and assigning them for multiple threads. At the end of each iteration, one threads need to wait for the other to finish current iteration in order to proceed to the next iteration. We can use "strict barrier" with `Phaser` to implement this parallel version:
+As you can see, this problem can be parallelized by splitting the array into smaller sub-arrays and assigning them for multiple threads. At the end of each iteration, one thread needs to wait for the other to finish current iteration in order to proceed to the next iteration. We can use "strict barrier" with `Phaser` to implement this parallel version:
 
 <img src="./img/average1.png" />
 
 
 
-In this version, for each thread, firstly, it has to compute the chunk which is the sub-array to be computed. This chunk is specified by two integer `lelf` and `right`. Then, each thread will start its local computation. Once they finish the computation of one phase, it has to wait for the other threads finish in order to proceed to next phase.
+In this version, for each thread, firstly, it has to identify the chunk which is the sub-array to be computed. This chunk is specified by two integers: `lelf` and `right`. Then, the thread will start its local computation. Once it finish the computation of one phase, it has to wait for the other threads to finish in order to proceed to next phase.
 
 ```java
 for (int iter = 0; iter < iterations; iter++) {
@@ -372,11 +372,11 @@ for (int iter = 0; iter < iterations; iter++) {
 }
 ```
 
-You should notice that in order to compute the values of one chunk in the next phase, the threads does not need to wait for the other chunks to complete previous phase. Instead, only the values at the border (left and right) of the other chunks are required. For example, in order for thread 2, that is responsible for computing chunk 2, to procced to the next phase, it needs only the the `right` value of chunk 1 and the `left ` value of chunk 3 at the current phase:
+You should notice that in order to compute the values of one chunk in the next phase, one threads does not need to wait for all of the chunks at the current phase. Instead, only the values at the border (left and right) of the other chunks are required. For example, in order for thread 2, which is responsible for processing chunk 2, to procced to the next phase, it needs only the `right` value of chunk 1 and the `left ` value of chunk 3 at the current phase:
 
 <img src="./img/average2.png"/>
 
-So, instead of making thread 2 wait for all of the threads, it just need to wait for those two values in order to proceed to next phase. We can implement this with "fuzzy barrier". Accordingly, each thread needs to compute its `left` and `right` value first, then indicates the phaser that those values are ready with `arrive()`. After that, it can continues with the rest of the elements in the chunk. Finally, when all the elements of chunk are computed, it wait to proceed to next phase.
+So, instead of making thread 2 wait for all of the other threads, it just needs to wait for those two values in order to proceed to next phase. We can implement this with "fuzzy barrier". Accordingly, each thread needs to compute its `left` and `right` values first, then indicates the phaser that those values are ready with `arrive()`. After that, it can continue with the remaining elements in the chunk. Finally, when all elements of the chunk are computed, it will wait for the others with `awaitAdvance()`.
 
 <img src="./img/average3.png" width="500" />
 
@@ -409,7 +409,7 @@ Remember to include the screenshot of the output to the report.
 
 In this exercise, we will examine the usage of multiple phasers in the implementation of pipeline problem. In this problem, we need to process a series of items which has multiple stages. The output of one stage is the input of the next stage. 
 
-The figure below illustrate an example of pipeline in which each item has 3 stages. Here we have 4 items, if we process them sequentially, it will take `4*3 = 12` units of time to finish. However, with pipeline, each stage will be processed by one thread. Therefore, the total execution time is only 6 units of time.
+The figure below illustrates an example of pipeline in which each item has 3 stages. Here we have 4 items, if we process them sequentially, it will take `4*3 = 12` units of time to finish. However, with pipeline, each stage will be processed by one thread. Therefore, the total execution time is only 6 units of time.
 
 In general, if we have `n` items each of them has `p` stages, the execution time will be `n + p - 1`.
 
