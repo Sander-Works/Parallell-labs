@@ -9,7 +9,7 @@ In this lab, we will evaluate different Java utilities such as monitor, lock, ba
 
 ## Submission Deadline:
 
-You need to commit your codes and lab report to your GitHub repository **before 10:00 AM Monday 15th February**.
+You need to commit your codes and lab report to your GitHub repository **before 10:00 AM Wednesday 17th February**.
 
 ## GitHub
 
