@@ -433,28 +433,28 @@ For the first stage:
 
 ```java
 for(int i = 0; i < n; i ++) {
-					doWork(10);		 // Work on the stage A	
-    				phaserA.arrive() // Indicate that stage A completed
-				}
+    doWork(10);			// Work on the stage A	
+    phaserA.arrive();	// Indicate that stage A completed
+}
 ```
 
 For the second stage:
 
 ```java
 for(int i = 0; i < n; i ++) {
-					phaserA.awaitAdvance() // Waiting for Stage A to complete
-					doWork(10);			   // Work on the stage B
-    				phaserB.arrive() 	   // Indicate that stage B completed
-				}
+    phaserA.awaitAdvance();	// Waiting for Stage A to complete
+    doWork(10);				// Work on the stage B
+    phaserB.arrive();		// Indicate that stage B completed
+}
 ```
 
 For the third stage:
 
 ```java
 for(int i = 0; i < n; i ++) {
-					phaserB.awaitAdvance() // Waiting for Stage B to complete
-					doWork(10);			   // Work on the stage C
-				}
+    phaserB.awaitAdvance();	// Waiting for Stage B to complete
+    doWork(10);				// Work on the stage C
+}
 ```
 
 Your task in this exercise is to complete the implementation of the `pipeline` project and compute the speedup.
