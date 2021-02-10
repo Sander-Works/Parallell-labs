@@ -12,10 +12,10 @@ public class ClosestDistanceSelector implements BiFunction<List<Long>, Long, Lon
 		//TODO: implement the function that return the number in the list t that is closed to the pivot u
 		//Hint: look at the implementation of step1Future in the Main
 		System.out.printf("%s: Step 1: Start\n", Thread.currentThread().getName());
-
+		long selected = 0;
 		
 		System.out.printf("%s: Step 1: Result - %d\n", Thread.currentThread().getName(), selected);
 		
-		return null;
+		return selected;
 	}
 }
