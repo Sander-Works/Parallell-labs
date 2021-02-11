@@ -91,6 +91,11 @@ public class ParallelGroupFileTask implements Runnable {
 	 */
 	private void processFile(File content, String fileName, Result parallelResult) {
 		//TODO: Complete the implementation of this method
+		if (content.getName().equals(fileName)) {
+			parallelResult.setPath(content.getAbsolutePath());
+			parallelResult.setFound(true);
+			found = true;
+		}
 	}
 
 	public boolean getFound() {
