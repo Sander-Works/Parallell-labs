@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/event-storage/pom.xml" />
+        <option value="$PROJECT_DIR$/parking/pom.xml" />
+        <option value="$PROJECT_DIR$/concurrent-counter/pom.xml" />
+        <option value="$PROJECT_DIR$/print-queue/pom.xml" />
+        <option value="$PROJECT_DIR$/printing-tasks/pom.xml" />
+        <option value="$PROJECT_DIR$/synchronization/pom.xml" />
+        <option value="$PROJECT_DIR$/video-conference/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>

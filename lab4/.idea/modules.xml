@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/concurrent-counter/concurrent-counter.iml" filepath="$PROJECT_DIR$/concurrent-counter/concurrent-counter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/event-storage/event-storage.iml" filepath="$PROJECT_DIR$/event-storage/event-storage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/lab4.iml" filepath="$PROJECT_DIR$/.idea/lab4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/parking/parking.iml" filepath="$PROJECT_DIR$/parking/parking.iml" />
+      <module fileurl="file://$PROJECT_DIR$/print-queue/print-queue.iml" filepath="$PROJECT_DIR$/print-queue/print-queue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/printing-tasks/printing-tasks.iml" filepath="$PROJECT_DIR$/printing-tasks/printing-tasks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/synchronization/synchronization.iml" filepath="$PROJECT_DIR$/synchronization/synchronization.iml" />
+      <module fileurl="file://$PROJECT_DIR$/video-conference/video-conference.iml" filepath="$PROJECT_DIR$/video-conference/video-conference.iml" />
+    </modules>
+  </component>
+</project>

@@ -26,13 +26,14 @@ public class VideoConferenceCountDownLatch implements VideoConference{
 	public VideoConferenceCountDownLatch(int number) {
 		
 		//TODO: Initialize the controller with CountDownLatch(int count) 
-		controller=new CountDownLatch(number);
+		this.controller=new CountDownLatch(number);
 	}
 
 	@Override
 	public void arrive(String name){
 		System.out.printf("%s has arrived.\n",name);
 		// TODO: Uses the countDown method to decrement the internal counter of the CountDownLatch
+		controller.countDown();
 		
 		
 		//Printing out the number of participants has not arrive yet
@@ -48,7 +49,12 @@ public class VideoConferenceCountDownLatch implements VideoConference{
 		System.out.printf("VideoConference: Initialization: %d participants.\n",controller.getCount());
 		
 		//TODO: Wait for all the participants with the countdownlatch
-		
+		try {
+			controller.await();
+		}
+		catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		// Starts the conference
 		System.out.printf("VideoConference: All the participants have come\n");
 		System.out.printf("VideoConference: Let's start...\n");

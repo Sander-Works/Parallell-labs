@@ -1,12 +1,16 @@
 package no.hiof.itf23019.print_queue.core.semaphore;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.ReentrantLock;
 
 import no.hiof.itf23019.print_queue.core.Printers;
+
 
 /**
  * This class implements a PrintQueue that have access to three printers.
@@ -27,7 +31,7 @@ public class PrintersSemaphore implements Printers {
 	/**
 	 * Array to control what printer is free
 	 */
-	private final boolean freePrinters[];
+	private final boolean[] freePrinters;
 	
 	/**
 	 * Lock to control the access to the freePrinters array
@@ -37,19 +41,21 @@ public class PrintersSemaphore implements Printers {
 	/**
 	 * Constructor of the class. It initializes the three objects
 	 */
-	public PrintersSemaphore(int numberOfPrinters){
-		
-		
-		freePrinters=new boolean[numberOfPrinters];
-		for (int i=0; i<3; i++){
-			freePrinters[i]=true;
+	public PrintersSemaphore(int numberOfPrinters) {
+
+		//Changed this to numbers of printers, because it seemed wrong to have i < 3
+		freePrinters = new boolean[numberOfPrinters];
+		for (int i = 0; i < numberOfPrinters; i++) {
+			freePrinters[i] = true;
 		}
-		
-		
+
+
 		//TODO: Initialize the Semaphore and Lock
 		//Replace the following lines with correct implementation
-		this.semaphore = null;
-		this.lockPrinters = null;
+		this.semaphore = new Semaphore(numberOfPrinters);
+		//Because we dont need to implement a lot of methods
+		this.lockPrinters = new ReentrantLock();
+
 	}
 	
 	@Override
@@ -57,8 +63,10 @@ public class PrintersSemaphore implements Printers {
 		try {
 			//TODO: Get access to the semaphore. If there is one or more printers free,
 			// it will get the access to one of the printers
-			
-			
+
+			System.out.println(Arrays.toString(freePrinters) + " is waiting to print ");
+			semaphore.acquire();
+
 			// Get the number of the free printer
 			int assignedPrinter=getPrinter();
 			
@@ -72,7 +80,7 @@ public class PrintersSemaphore implements Printers {
 			e.printStackTrace();
 		} finally {
 			//TODO: Free the semaphore
-						
+			semaphore.release();
 		}
 	}
 
@@ -81,7 +89,7 @@ public class PrintersSemaphore implements Printers {
 		
 		try {
 			//TODO: Get the access to the array with the lock
-			
+			lockPrinters.lock();
 			
 			// Look for the first free printer
 			for (int i=0; i<freePrinters.length; i++) {
@@ -95,9 +103,10 @@ public class PrintersSemaphore implements Printers {
 			e.printStackTrace();
 		} finally {
 			//TODO: Free the lock access to the array
-			
+			lockPrinters.unlock();
 		}
 		return ret;
+
 	}
 
 }

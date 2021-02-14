@@ -10,6 +10,7 @@ public class PrintingTaskB implements Runnable {
 	
 	@Override
 	public void run() {
+
 		for(int i = 1; i <= 3; i ++)
 			controller.doTaskB();
 	}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="print-queue" />
+        <module name="parking" />
+        <module name="concurrent-counter" />
+        <module name="video-conference" />
+        <module name="synchronization" />
+        <module name="event-storage" />
+        <module name="printing-tasks" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="concurrent-counter" target="1.7" />
+      <module name="event-storage" target="1.7" />
+      <module name="parking" target="1.7" />
+      <module name="print-queue" target="1.7" />
+      <module name="printing-tasks" target="1.7" />
+      <module name="synchronization" target="1.7" />
+      <module name="video-conference" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

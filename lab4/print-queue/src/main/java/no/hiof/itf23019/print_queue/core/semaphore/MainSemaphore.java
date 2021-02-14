@@ -3,18 +3,24 @@ package no.hiof.itf23019.print_queue.core.semaphore;
 import no.hiof.itf23019.print_queue.core.Job;
 import no.hiof.itf23019.print_queue.core.Printers;
 
+import java.util.Queue;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.locks.Lock;
+
 public class MainSemaphore {
+
 	/**
 	 * Main method of the class. Run ten jobs in parallel that
 	 * send documents to the print queue at the same time.
 	 */
 	public static void main (String args[]){
-		
+
+
 		int numberOfPrinters = 5;
 		int numberOfJobs = 10;
 		// Creates the print queue
 		//TODO: Initialize the printQueue with PrintQueueSemaphore
-		Printers printQueue=null;
+		Printers printQueue =  new PrintersSemaphore(numberOfPrinters);
 		
 		// Creates twelve Threads
 		Thread[] threads=new Thread[numberOfJobs];
@@ -28,6 +34,6 @@ public class MainSemaphore {
 		}
 	
 
-}
+	}
 
 }
