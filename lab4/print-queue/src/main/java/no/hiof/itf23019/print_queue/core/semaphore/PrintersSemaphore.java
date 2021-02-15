@@ -41,7 +41,7 @@ public class PrintersSemaphore implements Printers {
 		
 		
 		freePrinters=new boolean[numberOfPrinters];
-		for (int i=0; i<3; i++){
+		for (int i=0; i<numberOfPrinters; i++){
 			freePrinters[i]=true;
 		}
 		
