@@ -78,10 +78,12 @@ public final class OneDimAveragingPhaser {
 
                 for (int iter = 0; iter < iterations; iter++) {
                 	//TODO: Computing the intermediate values of the chunk [left, right]
-                	
-                    
-                    //TODO: Set barrier arriveAndAwaitAdvance
+                    for (int j = left; j <= right; j++) {
+                        threadPrivateMyNew[j] = (threadPrivateMyVal[j - 1] + threadPrivateMyVal[j + 1]) / 2.0;
+                    }
 
+                    //TODO: Set barrier arriveAndAwaitAdvance
+                    ph.arriveAndAwaitAdvance();
                     //Swap the arrays
                     double[] temp = threadPrivateMyNew;
                     threadPrivateMyNew = threadPrivateMyVal;
@@ -144,16 +146,21 @@ public final class OneDimAveragingPhaser {
                 for (int iter = 0; iter < iterations; iter++) {
                 	
                 	//TODO: Computing the intermediate the left and right values
-                	
+                    threadPrivateMyNew[left] = (threadPrivateMyVal[left - 1] + threadPrivateMyVal[left + 1]) / 2.0;
+
+                    threadPrivateMyNew[right] = (threadPrivateMyVal[right - 1] + threadPrivateMyVal[right + 1]) / 2.0;
+
                 	
                 	//TODO: barrier arrive
-                	
+                    int currentPhase = ph.arrive();
                 	
                 	//TODO: Computing the intermediate values between left and right values [left+1, right-1]
-                    
+                    for (int j = left + 1; j <= right - 1; j++) {
+                        threadPrivateMyNew[j] = (threadPrivateMyVal[j - 1] + threadPrivateMyVal[j + 1]) / 2.0;
+                    }
                     
                     //TODO: barrier awaitAdvance
-                   
+                    ph.awaitAdvance(currentPhase);
 
                     
                     //Swap the arrays

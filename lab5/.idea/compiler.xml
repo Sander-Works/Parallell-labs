@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="pipeline" />
+        <module name="phaser" />
+        <module name="one-dimension-averaging" />
+        <module name="completable" />
+        <module name="fuzzy-phaser" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="completable" target="1.8" />
+      <module name="fuzzy-phaser" target="1.7" />
+      <module name="one-dimension-averaging" target="8" />
+      <module name="phaser" target="1.8" />
+      <module name="pipeline" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

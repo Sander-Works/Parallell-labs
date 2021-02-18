@@ -67,9 +67,8 @@ public class Main {
 		System.out.println("Fuzzy Run Time: " + fuzzyTotalTime/RUNS);
 		
 		//TODO: Compute the speed up
+		System.out.println("Barrier speedup: " + sequentialTotalTime/barrierTotalTime);
+		System.out.println("Fuzzy speedup: " + sequentialTotalTime/fuzzyTotalTime);
+
 	}
-	
-	
-
-
 }

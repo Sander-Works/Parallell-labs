@@ -32,9 +32,14 @@ public class CompletetableMain {
 		// the pivot (uncomment the line below)
 		// Hint: use thenCombineAsync method
 		
-		// CompletableFuture<Long> pivot = CompletableFuture.completedFuture((long)1000);
+		CompletableFuture<Long> pivot = CompletableFuture.completedFuture((long)1000);
+		ClosestDistanceSelector selector = new ClosestDistanceSelector();
 
-		// Return the number that is closest to the pivot
+		CompletableFuture<Long> step1Future = startFuture.thenCombineAsync(pivot, selector);
+		//CompletableFuture<Long> step1Future = CompletableFuture.completedFuture(g)
+
+
+	/*	// Return the number that is closest to the pivot
 		CompletableFuture<Long> step1Future = startFuture.thenApplyAsync(list -> {
 			System.out.printf("%s: Step 1: Start\n", Thread.currentThread().getName());
 			long selected = 0;
@@ -50,7 +55,7 @@ public class CompletetableMain {
 			}
 			System.out.printf("%s: Step 1: Result - %d\n", Thread.currentThread().getName(), selected);
 			return selected;
-		});
+		});*/
 
 		// Return the maximum number in the list
 		System.out.printf("Main: Launching step 2\n");
@@ -59,10 +64,15 @@ public class CompletetableMain {
 
 		// TODO: Rewrite the below write2Future by using the NumberPrinter consumer.
 
-		// Write the result of previous step2Future
+		NumberPrinter numberPrinter = new NumberPrinter();
+		CompletableFuture<Void> write2Future = step2Future.thenAccept(selected -> {
+			numberPrinter.accept(selected);
+		});
+
+		/*// Write the result of previous step2Future
 		CompletableFuture<Void> write2Future = step2Future.thenAccept(selected -> {
 			System.out.printf("%s: Step 2: Result - %d\n", Thread.currentThread().getName(), selected);
-		});
+		});*/
 
 		System.out.printf("Main: Launching step 3\n");
 		NumberSelector numberSelector = new NumberSelector();

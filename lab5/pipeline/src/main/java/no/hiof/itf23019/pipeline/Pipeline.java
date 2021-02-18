@@ -12,9 +12,12 @@ public class Pipeline {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void main(String[] args) {
-		
+
+		long totSeqRunTime = 0;
+		long totalPipelineTime = 0;
+
 		final int n = 100;  //Number of items process by 3 stage pipeline
 		
 		final int RUNS = 5;
@@ -26,32 +29,30 @@ public class Pipeline {
 			//create two phaser objects for three stages pipeline 
 			final Phaser ph0 = new Phaser(1);
 			final Phaser ph1 = new Phaser(1);
-			
+
 			//TODO: Add phaser methods for the first stage
 			Thread t0 = new Thread(() -> {
 				for(int i = 0; i < n; i ++) {
-					
 					doWork(10);
+					ph0.arrive();
 				}
-				
 			});
 			
 			//TODO: Add phaser methods for the second stage
 			Thread t1 = new Thread(() -> {
 				for(int i = 0; i < n; i ++) {
-					
+					ph0.awaitAdvance(0);
 					doWork(10);
+					ph1.arrive();
 				}
-				
 			});
 			
 			//TODO: Add phaser methods for the third stage
 			Thread t2 = new Thread(() -> {
 				for(int i = 0; i < n; i ++) {
-					
+					ph1.awaitAdvance(1);
 					doWork(10);
 				}
-				
 			});
 			
 			
@@ -64,7 +65,7 @@ public class Pipeline {
 				
 			}
 			long runTime = System.currentTimeMillis() - startTime;
-			
+			totSeqRunTime += runTime;
 			System.out.println("Sequential version completed in " + runTime + " miliseconds");
 			
 			//Run Paralell version
@@ -86,13 +87,13 @@ public class Pipeline {
 			}
 			
 			runTime = System.currentTimeMillis() - startTime;
-			
+			totalPipelineTime = runTime;
 			System.out.println("Pipeline version completed in " + runTime + " miliseconds");
 			
 		}
-		
+
 		//TODO: Compute speedup
-		
+		System.out.println("Speedup pipeline: " + totSeqRunTime/totalPipelineTime);
 
 	}
 

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/one-dimension-averaging/pom.xml" />
+        <option value="$PROJECT_DIR$/phaser/pom.xml" />
+        <option value="$PROJECT_DIR$/pipeline/pom.xml" />
+        <option value="$PROJECT_DIR$/completable/pom.xml" />
+        <option value="$PROJECT_DIR$/fuzzy-phaser/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>
