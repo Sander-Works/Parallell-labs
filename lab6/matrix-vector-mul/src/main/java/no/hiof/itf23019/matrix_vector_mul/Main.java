@@ -37,7 +37,8 @@ public class Main {
 		//System.out.println(Arrays.toString(resultSerial));
 		
 		//TODO: compute speedup
-		
+		//Almost 2.5 times the speed with parallel
+		System.out.println("Parallel speedup: " + ((double) serialTime/parTime));
 		
 		
 		

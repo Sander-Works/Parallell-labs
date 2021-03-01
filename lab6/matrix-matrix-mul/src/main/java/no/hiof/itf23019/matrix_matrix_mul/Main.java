@@ -40,6 +40,8 @@ public class Main
 		System.out.println("parTime=" + parTime);
 		
 		//TODO: compute speedup
+		//Almsot 8 times the speed with parallel
+		System.out.println("Parallel speedup: " + ((double) serialTime / parTime));
     }
     
 	private static int[] generate1DArray(int N) {

@@ -34,15 +34,19 @@ public class MatrixVectorMulTask extends RecursiveAction{
 		return result;
 		*/
 
-		MatrixVectorMulTask left = new MatrixVectorMulTask(matrix, vector,  startIndex, endIndex, result); //This is to get to get the first half of the matrix's
-		MatrixVectorMulTask right = new MatrixVectorMulTask(matrix, vector, startIndex, endIndex, result); //This is to get the second half of the matrix's
+		if (endIndex - startIndex <= threshold) {
+			for (int i = startIndex; i < endIndex; i++)
+				for (int j = 0; j < vector.length; j++)
+					result[i] += matrix[i][j] * vector[j];
 
-		left.fork();
-		right.compute();
-		left.join();
-			
+		} else {
+				int middelIndex = (startIndex + endIndex) / 2;
+
+			MatrixVectorMulTask left = new MatrixVectorMulTask(matrix, vector, startIndex, middelIndex, result); //This is to get to get the first half of the matrix's
+			MatrixVectorMulTask right = new MatrixVectorMulTask(matrix, vector, middelIndex, endIndex, result); //This is to get the second half of the matrix's
+
+			invokeAll(left, right);
+
+		}
 	}
-	
-	
-
 }

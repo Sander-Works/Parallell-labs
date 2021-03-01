@@ -23,18 +23,19 @@ public class MatrixMatrixMulTask extends RecursiveAction{
 	@Override
 	protected void compute() {
 		//TODO: implement the fork/join method
+		if (endRow - startRow <= threshold) {
+			for (int i = startRow; i < endRow; i++)
+				for (int j = 0; j < matrix2[0].length; j++)
+					for (int k = 0; k < matrix2.length; k++)
+						result[i][j] += matrix1[i][k] * matrix2[k][j];
 
-		MatrixMatrixMulTask left = new MatrixMatrixMulTask(matrix1, matrix2,  startRow, endRow, result); //This is to get to get the first half of the matrix's
-		MatrixMatrixMulTask right = new MatrixMatrixMulTask(matrix1, matrix2, startRow, endRow, result); //This is to get the second half of the matrix's
+		} else {
+			int midelRow = (startRow + endRow) / 2;
+			MatrixMatrixMulTask left = new MatrixMatrixMulTask(matrix1, matrix2, startRow, midelRow, result); //This is to get to get the first half of the matrix's
+			MatrixMatrixMulTask right = new MatrixMatrixMulTask(matrix1, matrix2, midelRow, endRow, result); //This is to get the second half of the matrix's
 
-		left.fork();
-		right.compute();
-		left.join();
-	}
+			invokeAll(left,right);
 		}
-
-			
 	}
-
-
 }
+
