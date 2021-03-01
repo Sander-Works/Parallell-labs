@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/lab6.iml" filepath="$PROJECT_DIR$/.idea/lab6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/matrix-matrix-mul/matrix-matrix-mul.iml" filepath="$PROJECT_DIR$/matrix-matrix-mul/matrix-matrix-mul.iml" />
+      <module fileurl="file://$PROJECT_DIR$/matrix-vector-mul/matrix-vector-mul.iml" filepath="$PROJECT_DIR$/matrix-vector-mul/matrix-vector-mul.iml" />
+    </modules>
+  </component>
+</project>

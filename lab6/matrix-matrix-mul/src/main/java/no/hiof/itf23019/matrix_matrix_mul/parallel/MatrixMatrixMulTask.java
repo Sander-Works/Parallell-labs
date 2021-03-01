@@ -19,12 +19,22 @@ public class MatrixMatrixMulTask extends RecursiveAction{
 		this.endRow = endRow;
 		this.result = result;
 	}
+
 	@Override
 	protected void compute() {
 		//TODO: implement the fork/join method
+
+		MatrixMatrixMulTask left = new MatrixMatrixMulTask(matrix1, matrix2,  startRow, endRow, result); //This is to get to get the first half of the matrix's
+		MatrixMatrixMulTask right = new MatrixMatrixMulTask(matrix1, matrix2, startRow, endRow, result); //This is to get the second half of the matrix's
+
+		left.fork();
+		right.compute();
+		left.join();
+	}
+		}
+
 			
 	}
-	
-	
+
 
 }

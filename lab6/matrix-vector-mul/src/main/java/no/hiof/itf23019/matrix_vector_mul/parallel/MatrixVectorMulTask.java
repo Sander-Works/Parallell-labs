@@ -22,6 +22,24 @@ public class MatrixVectorMulTask extends RecursiveAction{
 	@Override
 	protected void compute() {
 		//TODO: implement the fork/join method
+	/*
+		int N = matrix.length;
+		int M = vector.length;
+		long[] result = new long[N];
+
+		for(int i = 0; i < N; i++)
+			for(int j = 0; j < M; j++)
+				result[i] += matrix[i][j]*vector[j];
+
+		return result;
+		*/
+
+		MatrixVectorMulTask left = new MatrixVectorMulTask(matrix, vector,  startIndex, endIndex, result); //This is to get to get the first half of the matrix's
+		MatrixVectorMulTask right = new MatrixVectorMulTask(matrix, vector, startIndex, endIndex, result); //This is to get the second half of the matrix's
+
+		left.fork();
+		right.compute();
+		left.join();
 			
 	}
 	
