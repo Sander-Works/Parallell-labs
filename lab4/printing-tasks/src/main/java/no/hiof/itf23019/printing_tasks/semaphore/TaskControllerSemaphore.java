@@ -13,7 +13,7 @@ public class TaskControllerSemaphore implements TaskController {
 	public TaskControllerSemaphore() {
 		//TODO: Initialize the two semaphore
 		this.semA = new Semaphore(1);
-		this.semB = new Semaphore(1);
+		this.semB = new Semaphore(0);
 	}
 
 	@Override
@@ -22,12 +22,10 @@ public class TaskControllerSemaphore implements TaskController {
 		try {
 			semA.acquire();
 			System.out.print("Welcome to ");
+			semB.release();
 		}
 		catch (InterruptedException e) {
 			e.printStackTrace();
-		}
-		finally {
-			semA.release();
 		}
 	}
 
@@ -37,12 +35,10 @@ public class TaskControllerSemaphore implements TaskController {
 		try {
 			semB.acquire();
 			System.out.println("Østfold University College");
+			semA.release();
 		}
 		catch (InterruptedException e) {
 			e.printStackTrace();
-		}
-		finally {
-			semB.release();
 		}
 	}
 }
