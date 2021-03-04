@@ -10,8 +10,9 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		
 		int RUNS = 10;
+		double totalParallelTime = 0;
+		double totalSerialTime = 0;
 		for (int j = 0; j < RUNS; j++) {
 			
 			System.out.println("RUN: #" + j);
@@ -36,6 +37,7 @@ public class Main {
 			end = System.currentTimeMillis();
 
 			System.out.println("Execution Time Java ParallelQuickSort: " + (end - start));
+			totalParallelTime = (end-start);
 
 			for (int i = 0; i < data.length; i++) {
 				if (data[i] != data2[i]) {
@@ -51,7 +53,9 @@ public class Main {
 			end = System.currentTimeMillis();
 
 			System.out.println("Execution Time Java SerialQuickSort: " + (end - start));
-			
+			totalSerialTime = (end-start);
+
+
 			for (int i = 0; i < data.length; i++) {
 				if (data[i] != data3[i]) {
 					System.err.println("There's a difference is position " + i);
@@ -61,7 +65,6 @@ public class Main {
 		}
 		
 		//TODO: Compute speedup
+		System.out.println("Parallell speedup: " + (totalSerialTime/totalParallelTime));
 	}
-	
-
 }

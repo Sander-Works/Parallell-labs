@@ -23,11 +23,11 @@ public class MergeSortTask extends RecursiveAction {
 	public void compute() {
 		if (end - start >= 1024) {
 			middle = (end + start) >>> 1;  //divided by 2
-			
-			
+
 			//TODO: Create the two tasks for two half, invokeAll them, and then merge.
-			
-			
+			MergeSortTask left = new MergeSortTask(data, start, middle);
+			MergeSortTask right = new MergeSortTask(data,middle, end);
+			invokeAll(left, right);
 			//Merging
 			merge();
 			

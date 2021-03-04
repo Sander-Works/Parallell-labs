@@ -13,6 +13,8 @@ public class SerialQuickSort {
 			//TODO: Implement quick sort
 			//Hint: Recursive call quickSort to the two half
 			// [start, split) and [split + 1, end)
+			quickSort(data, start, split);
+			quickSort(data,split+1,end);
 			
 		}
 	}

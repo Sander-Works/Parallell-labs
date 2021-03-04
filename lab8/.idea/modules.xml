@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/common-structure/common-structure.iml" filepath="$PROJECT_DIR$/common-structure/common-structure.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dijkstra/dijkstra.iml" filepath="$PROJECT_DIR$/dijkstra/dijkstra.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/lab8.iml" filepath="$PROJECT_DIR$/.idea/lab8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tree-search/tree-search.iml" filepath="$PROJECT_DIR$/tree-search/tree-search.iml" />
+    </modules>
+  </component>
+</project>

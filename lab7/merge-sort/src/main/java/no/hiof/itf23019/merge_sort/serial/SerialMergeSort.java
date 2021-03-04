@@ -12,6 +12,9 @@ public class SerialMergeSort {
 		//Hint: Recursive calls to two half:
 		//[start, middle) and [middle, end)
 		//and then merge.
+		mergeSort(data, start, middle);
+		mergeSort(data, middle, end);
+		merge(data, start, middle, end);
 	}
 
 	private void merge(int[] data, int start, int middle, int end) {

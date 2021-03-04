@@ -100,9 +100,21 @@ public class BubbleSort {
 	}
 
 	public static void runSequential(final int[] input, final int n) {
-		
-		//TODO: implement bubble sort here
 
+		//TODO: implement bubble sort here
+		//n was taken
+		int N = input.length;
+		for (int i = 0; i < N - 1; i++) {
+			for (int j = 0; j < N - i - 1; j++) {
+				//swapping if the number on index j is bigger then the number on index j+1
+				if (input[j] > input[j + 1]) {
+					//Creating temp int to save the value in
+					int temp = input[j];
+					input[j] = input[j + 1];
+					input[j + 1] = temp;
+				}
+			}
+		}
 	}
 
 	public static void runParallel(final int[] input, final int n, final int tasks) {
@@ -214,7 +226,11 @@ public class BubbleSort {
 	
 							//TODO: Compare and Swap the elements at even indices. 
 							//Hint: Refer to the runParallel method above
-							
+								if (input[2 * i] > input[2 * i + 1]) { //Compare and Swap the elements at even indices
+									int temp = input[2 * i];
+									input[2 * i] = input[2 * i + 1];
+									input[2 * i + 1] = temp;
+								}
 						}
 
 					} else { //If odd phase
@@ -236,6 +252,11 @@ public class BubbleSort {
 							
 							//TODO: Compare and Swap the elements at odd indices. 
 							//Hint: Refer to the runParallel method above
+							if (input[2 * i + 1] > input[2 * i + 2]) { //Compare and Swap the elements at odd indices
+								int temp = input[2 * i + 1];
+								input[2 * i + 1] = input[2 * i + 2];
+								input[2 * i + 2] = temp;
+							}
 							
 						}
 					}

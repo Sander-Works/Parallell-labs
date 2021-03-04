@@ -33,16 +33,17 @@ public class QuickSortTask extends RecursiveAction{
 			//TODO: Create two tasks for two half
 			// [start, split) and [split + 1, end)
 			// and then invokeAll them
-			
-			
+			QuickSortTask left = new QuickSortTask(data, start, split);
+			QuickSortTask right = new QuickSortTask(data, split+1, end);
+			invokeAll(left, right);
 			
 		} else {
 			new SerialQuickSort().quickSort(data, start, end);
 			
 		}
 	}
-	
-	
+
+
 	private int partition(int data[], int start, int end) 
 	{
 		int pivot = data[start];
