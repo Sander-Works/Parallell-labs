@@ -71,6 +71,7 @@ public class BubbleSort {
 		endTime = System.currentTimeMillis();
 		parRunTime = endTime - startTime;
 		System.out.println("Parallel version took " + parRunTime + " miliseconds");
+		System.out.println("Bubble Speedup: " + seqRunTime/parRunTime);
 		
 
         
@@ -81,11 +82,12 @@ public class BubbleSort {
 		endTime = System.currentTimeMillis();
 		parFuzzyRunTime = endTime - startTime;
 		System.out.println("Parallel version took " + parFuzzyRunTime + " miliseconds");
-			
+		System.out.println("Bubble speedup fuzzy: " + seqRunTime/parFuzzyRunTime);
+
 
 	        
 		//TODO: Compute the speedup
-		
+		//Placed in the blocks above
 		
 
 	}
@@ -257,7 +259,7 @@ public class BubbleSort {
 								input[2 * i + 1] = input[2 * i + 2];
 								input[2 * i + 2] = temp;
 							}
-							
+
 						}
 					}
 

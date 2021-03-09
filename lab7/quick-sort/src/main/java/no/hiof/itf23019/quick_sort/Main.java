@@ -18,9 +18,9 @@ public class Main {
 			System.out.println("RUN: #" + j);
 			
 			int n = 200_000;
-			int data[] = Utils.generateArray(n);
-			int data2[] = Arrays.copyOf(data, data.length);// copy(data);
-			int data3[] = Arrays.copyOf(data, data.length);// copy(data);
+			int[] data = Utils.generateArray(n);
+			int[] data2 = Arrays.copyOf(data, data.length);// copy(data);
+			int[] data3 = Arrays.copyOf(data, data.length);// copy(data);
 
 			long start;
 			long end;
@@ -45,7 +45,6 @@ public class Main {
 					System.exit(-1);
 				}
 			}
-			
 
 			SerialQuickSort mySerialSorter = new SerialQuickSort();
 			start = System.currentTimeMillis();
@@ -54,7 +53,6 @@ public class Main {
 
 			System.out.println("Execution Time Java SerialQuickSort: " + (end - start));
 			totalSerialTime = (end-start);
-
 
 			for (int i = 0; i < data.length; i++) {
 				if (data[i] != data3[i]) {
