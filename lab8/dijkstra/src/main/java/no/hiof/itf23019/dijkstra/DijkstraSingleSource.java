@@ -57,8 +57,41 @@ public class DijkstraSingleSource {
 		
 		//TODO: Implmenent parallel version with parallel stream
 		//Hint: replace stream with parallelStream.
-		
-		return null;
+		LinkedHashSet<GraphNode> visitedNodes = new LinkedHashSet<>();
+		LinkedHashMap<GraphNode, Double> weights = new LinkedHashMap<>();
+		int size = g.size();
+
+		visitedNodes.add(s);
+
+		for(GraphNode node : g.getNodes())
+		{
+			if(!node.equals(s))
+			{
+				GraphEdge edge =  s.getEdge(node);
+				if(edge != null)
+					weights.put(node, edge.getWeight());
+				else
+					weights.put(node, Double.POSITIVE_INFINITY);
+			}
+		}
+
+		while(visitedNodes.size() < size)
+		{
+			GraphNode u = weights.entrySet().parallelStream().filter(v -> !visitedNodes.contains(v.getKey())).min(Comparator.comparing(Entry::getValue)).get().getKey();
+			visitedNodes.add(u);
+			double weight_u = weights.get(u);
+
+			if(weight_u != Double.POSITIVE_INFINITY)
+				u.getEdges().stream().filter(v -> !visitedNodes.contains(v.getDestination()))
+						.forEach(e -> {
+							double weight_e = weights.get(e.getDestination());
+							double new_weight_e =  weight_u + e.getWeight();
+							if(new_weight_e < weight_e)
+								weights.put(e.getDestination(), new_weight_e);
+						});
+		}
+
+		return weights;
 	}
 	
 	 public static void main(String[] args) {
@@ -69,7 +102,6 @@ public class DijkstraSingleSource {
 		 System.out.println("Generating graph...");
 		 Graph g = Utils.generateGraph(7_000, false);
 		
-		 
 		 for(int run = 1; run <= 10; run++)
 		 {
 			 System.out.println("RUN #" + run);
@@ -79,17 +111,18 @@ public class DijkstraSingleSource {
 			 endTime = System.currentTimeMillis();
 			 serRunTime += endTime - startTime;
 			 System.out.println("Serial version took " + (endTime - startTime) + " miliseconds");
-			 
-			 
+
 			 System.out.println("Running ParallelDijkstra...");
 			 startTime = System.currentTimeMillis();
 			 weights = dijkstra.parallelDijkstra(g, g.getNodes().get(0));
 			 endTime = System.currentTimeMillis();
 			 parRunTime += endTime - startTime;
-			 System.out.println("Serial version took " + (endTime - startTime) + " miliseconds");
+			 System.out.println("parallel version took " + (endTime - startTime) + " miliseconds");
 		 }
 		 
 		 //TODO: Compute the speedup
+
+		 System.out.println("Parallell speedup: " + (serRunTime/parRunTime));
 		 
 	 }
 	

@@ -37,9 +37,5 @@ public class ParallelDepthFirstSearch {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
-		
-
-		
 	}
 }

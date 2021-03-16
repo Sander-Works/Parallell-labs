@@ -21,7 +21,7 @@ public class ArraySumRecursiveTask extends RecursiveTask {
         this.endIndex = endIndex;
     }
 
-    protected Object compute() {
+    protected Integer compute() {
 
         //If the size of the task is smaller than threshold, compute the sum directly
         if (endIndex - startIndex <= threshold) {

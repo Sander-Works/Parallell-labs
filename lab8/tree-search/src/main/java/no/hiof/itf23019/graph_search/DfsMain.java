@@ -37,9 +37,7 @@ public class DfsMain {
 			 
 			 tree.unvisit();
 		 }
-		
 		 //TODO: Compute speed up
-		 
+		 System.out.println("Parallel speedup: " + (serRunTime/parRunTime));
 	}
-
 }

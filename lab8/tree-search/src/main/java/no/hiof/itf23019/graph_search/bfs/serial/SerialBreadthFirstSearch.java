@@ -19,10 +19,10 @@ public class SerialBreadthFirstSearch {
 				
 				//TODO: continue the implementation of BFS
 				// Visit the node
+				node.visit();
 				// Add the child to the Queue
-				
+				nodes.add(node);
 			}
 		}
 	}
-
 }
