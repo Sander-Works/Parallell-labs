@@ -19,8 +19,8 @@ When looking at the Satin statistics of the random searches on one node with 16 
 Theseare the totals for 64 searches, not the averages.
 
 It would seem that each job is too small to effectively give over, because the visiting of onenode is nothing more than some memory look-ups. 
-One processor can do it so quickly that theparallel actions are not needed and even bad for performance. 
-From these observations it lookslike the only thing these applications create is parallel overhead,
+One processor can do it so quickly that the parallel actions are not needed and even bad for performance. 
+From these observations it looks like the only thing these applications create is parallel overhead,
 and nearly no parallel work at all.
 
 source(https://esc.fnwi.uva.nl/thesis/centraal/files/f515813033.pdf)
