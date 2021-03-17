@@ -18,6 +18,11 @@ They both use a lot more data and send some of it using the Shared Objects.  Thi
 When looking at the Satin statistics of the random searches on one node with 16 cores (Table5.4), all numbers have the be divided by 64, when comparing them to the previous table.
 Theseare the totals for 64 searches, not the averages.
 
+It would seem that each job is too small to effectively give over, because the visiting of onenode is nothing more than some memory look-ups. 
+One processor can do it so quickly that theparallel actions are not needed and even bad for performance. 
+From these observations it lookslike the only thing these applications create is parallel overhead,
+and nearly no parallel work at all.
+
 source(https://esc.fnwi.uva.nl/thesis/centraal/files/f515813033.pdf)
 
 Parallell could be used on graphs and trees however, but it only yield good results when you want to traverse multiple graphs and trees at the same time. 
