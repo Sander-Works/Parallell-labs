@@ -32,7 +32,7 @@ Parallell could be used on graphs and trees however, but it only yield good resu
 
 
 ###Task 2 
-To add to what i wrote in the first task...
+To add to what I wrote/referred to in the first task...
 
 The speedup is not too impressive, this is partly due to ConcurrentSkipListSet. This is synchronized (which is important), but time expensive.
 This is synchronized because it's preventing more then one thread to access any given object at the same time. This thread safety is executed by the thread-safe class: ConcurrentSkipListMap.
