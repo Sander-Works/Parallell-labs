@@ -109,10 +109,15 @@ try (ServerSocket serverSocket = new ServerSocket(portNumber);
 In this exercise, we will implement the client/server pair that serves up Knock Knock jokes. Knock Knock jokes are favored by children and are usually vehicles for bad puns. They go like this:
 
 **Server**: "Knock knock!"
+
 **Client**: "Who's there?"
+
 **Server**: "Dexter."
+
 **Client**: "Dexter who?"
+
 **Server**: "Dexter halls with boughs of holly."
+
 **Client**: "Groan."
 
 The client program is implemented by a single class, `KnockKnockClient`, and is very similar to the `EchoClient` example from the previous section. The server program is implemented by two classes: `KKSingleServer` and `KnockKnockProtocol`. `KKSingleServer`, which is similar to `EchoServer`, contains the `main` method for the server program and performs the work of listening to the port, establishing connections, and reading from and writing to the socket. The class `KnockKnockProtocol`serves up the jokes. It keeps track of the current joke, the current state (sent knock knock, sent clue, and so on), and returns the various text pieces of the joke depending on the current state. This object implements the protocol—the language that the client and server have agreed to use to communicate.
