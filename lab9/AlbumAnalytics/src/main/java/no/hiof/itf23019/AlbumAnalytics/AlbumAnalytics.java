@@ -33,7 +33,10 @@ public class AlbumAnalytics {
 	 */
 	public void printAlbumNamePar(List<Album> albums) {
 		//TODO: Use forEach
-		
+
+		albums.parallelStream()
+				.forEach(album -> System.out.println(album.getName()));
+
 	}
 
 	
@@ -53,7 +56,12 @@ public class AlbumAnalytics {
 	 */
 	public void printTrackNamePar(List<Album> albums) {
 		//TODO: Use forEach twice
-		
+		albums.parallelStream()
+				.forEach(album -> {
+					System.out.println(album.getName() + " " + album.getYear());
+					album.getTracks().forEach(track -> System.out.println(track.getName()));
+
+				});
 	}
 
 	/**
@@ -77,7 +85,11 @@ public class AlbumAnalytics {
 	 */
 	public List<String> getAlbumOfYear2011and2012Par(List<Album> albums) {
 		// TODO: Use filter, map, collect with Collectors.toList()
-		return null;
+		return albums.parallelStream()
+				.filter(album -> album.getYear() == 2011 || album.getYear() == 2012)
+				.map(Album::getName)
+				.collect(Collectors.toList());
+
 	}
 
 	/**
@@ -100,7 +112,9 @@ public class AlbumAnalytics {
 	 */
 	public int sumOfYearPar(List<Album> albums) {
 		// TODO: Use mapToInt, sum
-		return -1;
+		return albums.parallelStream()
+				.mapToInt(Album::getYear)
+				.sum();
 	}
 
 	/**
@@ -125,7 +139,11 @@ public class AlbumAnalytics {
 	 */
 	public int countNumberOfTracksOfAlbumsOfYear2011Par(List<Album> albums) {
 		// TODO: use filter, mapToInt, sum
-		return -1;
+		  return albums.parallelStream()
+				.filter(album -> album.getYear() == 2011)
+				.mapToInt(album -> album.getTracks().size())
+				.sum();
+
 	}
 
 	/**
@@ -153,7 +171,8 @@ public class AlbumAnalytics {
 	 */
 	public Map<Integer, Integer> countNumberOfTrackByYearPar(List<Album> albums) {
 		// TODO: use collect with Collectors.groupingBy, Collectors.reducing
-		return null;
+		return albums.parallelStream()
+				.collect(Collectors.groupingBy(Album::getYear, Collectors.reducing(0,album -> album.getTracks().size(), Integer::sum)));
 	}
 
 	/**
@@ -183,7 +202,8 @@ public class AlbumAnalytics {
 	 */
 	public Map<Integer, List<String>> getAlbumNameByYearPar(List<Album> albums) {
 		// TODO: Use collect with Collectors.groupingBy, Collectors.mapping, Collectors.toList
-		return null;
+		return albums.parallelStream()
+				.collect(Collectors.groupingBy(Album::getYear, Collectors.mapping(Album::getName,Collectors.toList())));
 
 	}
 
@@ -222,8 +242,13 @@ public class AlbumAnalytics {
 	 */
 	public List<Album> getFavoriteAlbumPar(List<Album> albums) {
 		// TODO: Use filter with anyMatch, sorted, collect with Collectors.toList
-		return null;
+
+		return albums.parallelStream()
+				.filter(album -> album.getTracks().parallelStream().anyMatch(tracks -> (tracks.getRating() >= 4)))
+				.sorted(Comparator.comparing(Album::getName))
+				.collect(Collectors.toList());
 	}
+
 
 	/**
 	 * Group the tracks by released year
@@ -251,6 +276,12 @@ public class AlbumAnalytics {
 	 */
 	public Map<Integer, List<Track>> getTracksByYearPar(List<Album> albums) {
 		// TODO: Use collect with Collectors.groupingBy, Collectors.reducing
-		return null;
+		return albums
+				.parallelStream()
+				.collect(Collectors.groupingBy(Album::getYear,Collectors.reducing(new ArrayList<>(0),Album::getTracks, (a, b) -> {
+					ArrayList<Track> ret = new ArrayList<>(a);
+					ret.addAll(b);
+					return ret;
+				})));
 	}
 }

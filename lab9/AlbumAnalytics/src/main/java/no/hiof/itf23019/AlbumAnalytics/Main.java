@@ -15,19 +15,19 @@ public class Main {
 
 	public static void main(String[] args) {
 		final int REPEATS = 5;
-		final int N_ALBUMS = 1_000_000;
+		final int N_ALBUMS = 2_000_000;
 		List<Album> albums = generateAlbum(N_ALBUMS);
 		long start, end;
 		
 		AlbumAnalytics analytics = new AlbumAnalytics();
 		
 		//Printing album name
-		analytics.printAlbumNamePar(albums);
+		//analytics.printAlbumNamePar(albums);
 		
 		//Printing track name
 		//analytics.printTrackNamePar(albums);
-		
-		
+
+		long totalSer, totalPar;
 		for(int i = 1; i <= REPEATS; i++)
 		{
 			System.out.println("RUN# " + i);
@@ -36,7 +36,7 @@ public class Main {
 			System.out.println("getAlbumOfYear2011and2012");
 			
 			start = System.currentTimeMillis();
-			analytics.getAlbumOfYear2011and2012(albums);	
+			analytics.getAlbumOfYear2011and2012(albums);
 			end = System.currentTimeMillis();
 			System.out.println("Serial Execution Time : " + (end - start));
 			
@@ -59,20 +59,71 @@ public class Main {
 			System.out.println("Parallel Execution Time : " + (end - start));
 			
 			//TODO: Compute speed up for all of the methods in AlbumAnalytics except the first two printing methods.
-			
+
+			//Counts the total number of tracks of the albums released in 2011 m
+			System.out.println("sumOfYear - 2011");
+			start = System.currentTimeMillis();
+			analytics.countNumberOfTracksOfAlbumsOfYear2011(albums);
+			end = System.currentTimeMillis();
+			System.out.println("Serial Execution Time : " + (end - start));
+
+
+			start = System.currentTimeMillis();
+			analytics.countNumberOfTracksOfAlbumsOfYear2011Par(albums);
+			end = System.currentTimeMillis();
+			System.out.println("Parallel Execution Time : " + (end - start));
+
+			//Counts the number of tracks of the albums grouped by released year
+			System.out.println("Counts grouped tracks");
+			start = System.currentTimeMillis();
+			analytics.countNumberOfTrackByYear(albums);
+			end = System.currentTimeMillis();
+			System.out.println("Serial Execution Time : " + (end - start));
+
+
+			start = System.currentTimeMillis();
+			analytics.countNumberOfTrackByYearPar(albums);
+			end = System.currentTimeMillis();
+			System.out.println("Parallel Execution Time : " + (end - start));
+
+			//Group the album by the released year
+			System.out.println("Group the album by the released year");
+			start = System.currentTimeMillis();
+			analytics.getAlbumNameByYear(albums);
+			end = System.currentTimeMillis();
+			System.out.println("Serial Execution Time : " + (end - start));
+
+
+			start = System.currentTimeMillis();
+			analytics.getAlbumNameByYearPar(albums);
+			end = System.currentTimeMillis();
+			System.out.println("Parallel Execution Time : " + (end - start));
+
+			//Group the album by the released year
+			System.out.println("Group the tracks by released year");
+			start = System.currentTimeMillis();
+			analytics.getTracksByYear(albums);
+			end = System.currentTimeMillis();
+			System.out.println("Serial Execution Time : " + (end - start));
+
+
+			start = System.currentTimeMillis();
+			analytics.getTracksByYearPar(albums);
+			end = System.currentTimeMillis();
+			System.out.println("Parallel Execution Time : " + (end - start));
+
+
 			System.out.println();
 			
 		}
-		
-		
 	}
 
 	public static List<Album> generateAlbum(int n) {
 
 		System.out.println("Generating albums ...");
-		
+		//data/wordlist.txt"
 		List<String> words = new ArrayList<String>();
-		try (Stream<String> lines = Files.lines(Paths.get("data/wordlist.txt"))) {
+		try (Stream<String> lines = Files.lines(Paths.get("F:\\Skole\\Parallell prog\\labs-Sander-Works\\lab9\\AlbumAnalytics\\data\\wordlist.txt"))) {
 			words = lines.collect(Collectors.toList());
 		} catch (IOException e) {
 			e.printStackTrace();
