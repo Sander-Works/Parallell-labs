@@ -271,7 +271,7 @@ The program `MatrixMatrixMult.java` computes the multiplication of two square ma
 Your tasks for this exercise are:
 
 * Analyze the code and discuss shortly how the algorithm is implemented.
-* Compile and run the program with 1, 2, 3, 4, ... processes, compute and discuss the speedup values.
+* Compile and run the program with 1, 2, 3, 4, ... processes and `N = 1000`. Compute and discuss the speedup values.
 
 ## What To Submit
 
