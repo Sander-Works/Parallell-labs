@@ -223,7 +223,7 @@ public void Scatterv(java.lang.Object sendbuf,
                        throws MPIException
 ```
 
-`MPI SCATTERV` extends the functionality of `MPI SCATTER` by allowing a varying count of data to be sent to each process, since `sendcount` is now an array. It also allows more flexibility as to where the data is taken from on the root, by providing the new argument, `displs`.
+`MPI Scatterv` extends the functionality of `MPI Scatter` by allowing a varying count of data to be sent to each process, since `sendcount` is now an array. It also allows more flexibility as to where the data is taken from on the root, by providing the new argument, `displs`.
 
 ### MPI Gather
 
