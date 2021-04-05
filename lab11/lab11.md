@@ -84,7 +84,11 @@ public static void Finalize() throws MPIException
 
 To compile the program, you should open a terminal (cmd) and change the working directory to the directory that contains the source files. Otherwise, if you use Eclipse, right click on the default package, then **Show in Local Terminal** -> **Terminal**.
 
+<<<<<<< HEAD
 <img src="./img/eclipse1.png" style="zoom:70%;" />
+=======
+<img src="./img/Eclipse1.png" style="zoom:70%;" />
+>>>>>>> 940ab8dfda11cd2725c421230b669ae8a2bee5bf
 
 Once you on the terminal, compile the program with `fmpjc` command, and run the program with `fmpjrun`:
 
@@ -95,7 +99,11 @@ fmpjrun -np 2 -class HelloWorld
 
 The example above runs the program with 2 processes in localhost.
 
+<<<<<<< HEAD
 <img src="./img/eclipse2.png" style="zoom:70%;" />
+=======
+<img src="./img/Eclipse2.png" style="zoom:70%;" />
+>>>>>>> 940ab8dfda11cd2725c421230b669ae8a2bee5bf
 
 ## Exercise 1 (20 points)
 
