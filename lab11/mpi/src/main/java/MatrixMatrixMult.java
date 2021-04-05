@@ -9,8 +9,7 @@ public class MatrixMatrixMult {
 		int me, size, n, i, j, k, count, remainder, myRows, rows;
 		double[] matrix_A = null, matrix_B = null, matrix_C = null, local_matrix_A = null, local_matrix_C = null;
 		int[] sendcounts, senddispls, recvcounts, recvdispls;
-		double[] seconds_comp = new double[1], seconds_comms = new double[1], total_seconds_comp = new double[1],
-				total_seconds_comms = new double[1];
+		
 		double start = 0, end = 0;
 
 		args = MPI.Init(args);
@@ -79,8 +78,6 @@ public class MatrixMatrixMult {
 			start = MPI.Wtime();
 		}
 
-		seconds_comp[0] = 0.0;
-		seconds_comms[0] = 0.0;
 		count = n / size;
 		remainder = n % size;
 		//Number of rows to be computed by each process

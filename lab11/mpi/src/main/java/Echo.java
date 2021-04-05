@@ -19,7 +19,7 @@ public class Echo
 			System.exit(1);
 		}
 		
-		Random random = new Random(20200218);
+		Random random = new Random(20210404);
 		
 
 		int data[]=new int[1];
