@@ -42,13 +42,11 @@ public class SimpleServer {
 
 		// Listen for a stop command
 		simpleServer.listenForInput();
-
 	}
 
 	public SimpleServer(String address, int port, String serviceUri) {
 		// the result url is http://address:port/serviceUri
 		baseUri = getUri(address, port, serviceUri, false);
-
 	}
 
 	public void startServer(Set<Class<?>> classes, String[] packages) {

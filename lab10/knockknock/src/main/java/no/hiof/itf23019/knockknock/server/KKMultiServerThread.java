@@ -57,7 +57,7 @@ public class KKMultiServerThread implements Runnable {
                 outputLine = kkp.processInput(inputLine);
                 out.println(outputLine);
                 if (outputLine.equals("Bye"))
-                    break;
+                    break; 
             }
             socket.close();
         } catch (IOException e) {

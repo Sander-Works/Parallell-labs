@@ -8,6 +8,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status.Family;
 import javax.ws.rs.core.UriBuilder;
 
+import no.hiof.itf23019.car_api.resource.RestResource;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.ClientProperties;
 
@@ -48,6 +49,8 @@ public class SimpleClient {
 			System.out.println(car);
 		}
 	}
+
+
 	
 	private static Client createClient() {
 		ClientConfig configuration = new ClientConfig();
