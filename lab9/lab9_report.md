@@ -4,8 +4,13 @@
 
 ###Task 1
 
-!["Condition output"](Images/Image1.png)
+!["Condition output"](Images/Image1.png)  
 !["Condition output"](Images/Image2.png)
 
 
 I can't seem to get the last function to work with a high speed. 
+
+###Speedup 
+!["Condition output"](Images/speedup.png)
+
+
