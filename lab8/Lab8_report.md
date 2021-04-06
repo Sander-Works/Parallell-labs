@@ -5,13 +5,13 @@
 
 
 ###Task 1 
-I was wondering why the parallell implementation didn't seem to yield any results I did some research and found a paper online that refered to this problem.
+I was wondering why the parallell implementation didn't seem to yield any results I did some research and found a paper online that referred to this problem.
 
 
-In the Satin statistics of the full-traversal on one node with 16 cores (Table 5.3), there is noobservable difference between Search and Search IA.
-This can be attributed to the lack of abortsbecause in a full traversal these will not be executed.  The overhead the inlets have is negligible.
+In the Satin statistics of the full-traversal on one node with 16 cores (Table 5.3), there is no observable difference between Search and Search IA.
+This can be attributed to the lack of absorbers in a full traversal these will not be executed.  The overhead the inlets have is negligible.
 Both have more than enough spawns, meaning there are enough threats that can be stolen. 
-Thisis attempted not that many times,  and even fewer attempts succeed.  
+Thisis attempted not that many times,  and even fewer attempts to succeed.  
 This leads to nearly noparallel work.The two versions with Shared Objects differ not that much from each other.  
 Both have alot more steal attempts than the other two versions, but relatively even fewer successful steals.
 They both use a lot more data and send some of it using the Shared Objects.  This creates morework, with no advantages.

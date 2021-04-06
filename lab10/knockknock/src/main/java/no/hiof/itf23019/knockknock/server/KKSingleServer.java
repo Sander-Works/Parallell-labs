@@ -44,10 +44,10 @@ public class KKSingleServer {
 		try (ServerSocket serverSocket = new ServerSocket(portNumber);
 				
 				//TODO: Waiting for the client with accept()
-				Socket clientSocket = null;
-				
+				Socket clientSocket = serverSocket.accept();
 				PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-				BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));) {
+				BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+				) {
 
 			String inputLine, outputLine;
 
@@ -59,7 +59,7 @@ public class KKSingleServer {
 			while ((inputLine = in.readLine()) != null) {
 				outputLine = kkp.processInput(inputLine);
 				out.println(outputLine);
-				if (outputLine.equals("Bye."))
+				if (outputLine.equals("bye"))
 					break;
 			}
 		} catch (IOException e) {

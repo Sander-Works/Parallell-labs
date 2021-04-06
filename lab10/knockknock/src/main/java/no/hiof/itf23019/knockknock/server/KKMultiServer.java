@@ -48,8 +48,7 @@ public class KKMultiServer {
             	Socket clientSocket = serverSocket.accept();
 
             	//TODO: Create the Thread to handle the clientSocket and start it
-	           
-            	
+
 	            System.out.printf("Client accepted.\n");
 	        }
 	    } catch (IOException e) {

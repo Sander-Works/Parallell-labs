@@ -42,8 +42,6 @@ public class KKMultiServerThread implements Runnable {
     }
     
     public void run() {
-
-    	
         try (
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(

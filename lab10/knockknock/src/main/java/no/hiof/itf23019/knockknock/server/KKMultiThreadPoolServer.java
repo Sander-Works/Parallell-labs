@@ -31,6 +31,7 @@ package no.hiof.itf23019.knockknock.server;
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */ 
 
+
 import java.net.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -55,8 +56,8 @@ public class KKMultiThreadPoolServer {
             	
             	//TODO: Create the thread to handle the clientSocket
             	//and submit it to executor
-	            
-	            
+                KKMultiServerThread server = new KKMultiServerThread(clientSocket);
+                executor.submit(server);
 	            
 	            System.out.printf("Client accepted.\n");
 	        }

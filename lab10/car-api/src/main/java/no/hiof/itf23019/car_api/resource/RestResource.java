@@ -137,9 +137,19 @@ public class RestResource {
 	
 	//TODO: Implement a PUT API to update the car with id to the new color
 	//Hint: use the @Path("cars/{id}/{color}")
-	
-	public Response updateCarColor() {
-		return null;
+	@Path("cars/{id}/{color}")
+	public Response updateCarColor(@PathParam("id") Integer id,Car updateCar, String color) {
+		Car carFromTheDatabase = cars.get(id);
+		// Throw an exception if the car with the specified ID does not exist
+		if (carFromTheDatabase == null) {
+			return Response.status(Status.BAD_REQUEST).build();
+		}
+		cars.get(id).setColor(color);
+		// Update the car
+		cars.put(id, updateCar );
+
+		// Return a response with Accepted status code
+		return Response.status(Status.ACCEPTED).entity(updateCar).build();
 	}
 
 	/*

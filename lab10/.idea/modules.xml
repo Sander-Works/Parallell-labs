@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/car-api/car-api.iml" filepath="$PROJECT_DIR$/car-api/car-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/echo-server/echo-server.iml" filepath="$PROJECT_DIR$/echo-server/echo-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/knockknock/knockknock.iml" filepath="$PROJECT_DIR$/knockknock/knockknock.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/lab10.iml" filepath="$PROJECT_DIR$/.idea/lab10.iml" />
+    </modules>
+  </component>
+</project>
