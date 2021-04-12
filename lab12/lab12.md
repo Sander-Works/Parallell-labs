@@ -1,6 +1,6 @@
 <h1 align="center"> ITF23019 - Parallel and Distributed Programming </h1>
 <h3 align="center"> Spring 2021 </h2>
-<h3 align="center"> Lab 11: MapReduce </h2>
+<h3 align="center"> Lab 12: MapReduce </h2>
 
 
 This lab is an introduction to MapReduce programming paradigm. We will learn to use Spark framework to develop a simple word-count program based on MapReduce model.
