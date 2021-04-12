@@ -6,10 +6,12 @@ import java.util.*;
 
 public class FileReader {
     public ArrayList<String> words = new ArrayList<>();
+
+    public static String filename = "Textfile";
     public void readFile() throws FileNotFoundException {
 
         // pass the path to the file as a parameter
-        File file = new File("F:\\Skole\\Parallell prog\\labs-Sander-Works\\project\\Project\\src\\main\\java\\no\\hiof\\itf23019\\project\\Textfile.txt"); //Change this to your location
+        File file = new File( filename + ".txt"); //Change this to your location, you might want to change working directory for this 
         Scanner sc = new Scanner(file);
         sc.useDelimiter("");
         try {
