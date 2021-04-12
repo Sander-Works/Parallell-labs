@@ -11,7 +11,7 @@ public class FileReader {
     public void readFile() throws FileNotFoundException {
 
         // pass the path to the file as a parameter
-        File file = new File( filename + ".txt"); //Change this to your location, you might want to change working directory for this 
+        File file = new File( filename + ".txt"); //Change this to your location, you might want to change working directory for this
         Scanner sc = new Scanner(file);
         sc.useDelimiter("");
         try {
