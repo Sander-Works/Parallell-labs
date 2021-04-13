@@ -39,13 +39,21 @@ public final class JavaWordCount {
 		String inputFile = "text.txt";
 		int niterations = 5;
 		int nCores = 1;
-		
+
+		long totalSerial, totalPar,start,end;
+
+		start = System.currentTimeMillis();
 		System.out.println("Serial running ....");
 		List<Tuple2<String, Integer>> output = runWordCount(inputFile, nCores, niterations);
-		
+		end = System.currentTimeMillis();
+		totalSerial = end - start;
+
+		start = System.currentTimeMillis();
 		nCores = Runtime.getRuntime().availableProcessors();
 		System.out.println("Paralel running ....");
 		output = runWordCount(inputFile, nCores, niterations);
+		end = System.currentTimeMillis();
+		totalPar = end - start;
 
 		System.out.println("\nResult:");
 		for (Tuple2<?, ?> tuple : output) {
@@ -53,7 +61,9 @@ public final class JavaWordCount {
 		}
 		
 		//TODO: Compute Speedup
-		
+		System.out.println("serial time: " + totalSerial);
+		System.out.println("Parallel time: " + totalPar);
+		System.out.println("Parallel speedup: " + (totalSerial/totalPar));
 		
 	}
 
@@ -73,13 +83,12 @@ public final class JavaWordCount {
 		
 		for(int i = 0; i < niterations; i++)
 		{
-			
 
 			JavaRDD<String> words = lines.flatMap(s -> Arrays.asList(SPACE.split(s)).iterator());
 
 			JavaPairRDD<String, Integer> ones = words.mapToPair(s -> new Tuple2<>(s, 1));
 
-			JavaPairRDD<String, Integer> counts = ones.reduceByKey((i1, i2) -> i1 + i2);
+			JavaPairRDD<String, Integer> counts = ones.reduceByKey(Integer::sum);
 			
 			// You need to install Spark in order to run this command
 			// counts.saveAsTextFile("./out");
