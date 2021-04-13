@@ -46,6 +46,9 @@ public final class JavaWordCount {
 		nCores = Runtime.getRuntime().availableProcessors();
 		System.out.println("Paralel running ....");
 		output = runWordCount(inputFile, nCores, niterations);
+		
+		
+		// counts.saveAsTextFile("./out");
 
 		System.out.println("\nResult:");
 		for (Tuple2<?, ?> tuple : output) {
@@ -80,9 +83,6 @@ public final class JavaWordCount {
 			JavaPairRDD<String, Integer> ones = words.mapToPair(s -> new Tuple2<>(s, 1));
 
 			JavaPairRDD<String, Integer> counts = ones.reduceByKey((i1, i2) -> i1 + i2);
-			
-			// You need to install Spark in order to run this command
-			// counts.saveAsTextFile("./out");
 
 			output = counts.collect();
 		}
@@ -103,8 +103,9 @@ public final class JavaWordCount {
 		Logger.getLogger("org").setLevel(Level.OFF);
 		Logger.getLogger("akka").setLevel(Level.OFF);
 
-		final SparkConf conf = new SparkConf().setAppName("edu.coursera.distributed.PageRank")
-				.setMaster("local[" + nCores + "]").set("spark.ui.showConsoleProgress", "false");
+		final SparkConf conf = new SparkConf().setAppName("no.hiof.itf23019.word-count")
+				// .set("spark.driver.host","localhost")
+				.setMaster("local[" + nCores + "]").set("spark.ui.showConsoleProgress", "true");
 		JavaSparkContext ctx = new JavaSparkContext(conf);
 		ctx.setLogLevel("OFF");
 		return ctx;
