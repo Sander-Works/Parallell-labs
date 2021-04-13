@@ -12,7 +12,7 @@
     <orderEntry type="module-library">
       <library name="Maven: mpi:FastMPJ:1.0">
         <CLASSES>
-          <root url="jar://C:/Program Files/FastMPJ/lib/mpj.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../Java libs/FastMPJ/lib/mpj.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

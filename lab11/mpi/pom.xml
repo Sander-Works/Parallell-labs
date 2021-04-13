@@ -24,7 +24,7 @@
             <artifactId>FastMPJ</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>C:\Program Files\FastMPJ\lib\mpj.jar</systemPath>
+            <systemPath>F:\Skole\Parallell prog\Java libs\FastMPJ\lib\mpj.jar</systemPath>
         </dependency>
   </dependencies>
 
