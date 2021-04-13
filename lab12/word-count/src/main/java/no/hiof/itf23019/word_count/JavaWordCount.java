@@ -103,9 +103,9 @@ public final class JavaWordCount {
 		Logger.getLogger("org").setLevel(Level.OFF);
 		Logger.getLogger("akka").setLevel(Level.OFF);
 
-		final SparkConf conf = new SparkConf().setAppName("no.hiof.itf23019.word-count")
-				// .set("spark.driver.host","localhost")
-				.setMaster("local[" + nCores + "]").set("spark.ui.showConsoleProgress", "true");
+		final SparkConf conf = new SparkConf().setAppName("no.hiof.itf23019.wordcount")
+				.set("spark.driver.host","localhost")
+				.setMaster("local[" + nCores + "]").set("spark.ui.showConsoleProgress", "false");
 		JavaSparkContext ctx = new JavaSparkContext(conf);
 		ctx.setLogLevel("OFF");
 		return ctx;
